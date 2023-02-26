@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
-        Destroy(this.gameObject,3); // Brise Metak poslije 5 sekundi ako ne udari nesto
+        //Destroy(this.gameObject,3); // Brise Metak poslije 5 sekundi ako ne udari nesto
         direction = Player_Movement.GetDirection(); // Uzima smjer
         switch(direction)
         {
@@ -55,7 +55,11 @@ public class Bullet : MonoBehaviour
             
     }
 
-    
+    private void OnBecameInvisible() //Ako izadje sa kamere
+    {
+        Destroy(this.gameObject);
+    }
+
     private void OnDestroy()
     {
         Player_Movement.BulletDestroy();
