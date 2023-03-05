@@ -1,6 +1,8 @@
+using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -9,32 +11,41 @@ public class Player_Movement : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    public float moveSpeed; //Brzina kretanja
-    public float jumpSpeed; //Brzina skoka
-    public float fallSpeed; //Brzina pada/gravitacija za igraca
-    public float crouchSpeed; //Brzina pada/gravitacija za igraca
+    public float moveSpeed = 9f;    // Brzina kretanja
+    public float jumpSpeed = 19f;   // Brzina skoka
+    public float fallSpeed = 4f;    // Brzina pada/gravitacija za igraca
+    public float crouchSpeed = 1f;  // Brzina pada/gravitacija za igraca
 
-    private bool onGround; //Pokazuje da li je na zemlji
-    private bool onLadder; //Pokazuje da li je na ljestvama
-    private bool inLadderTrigger; //Pokazuje da li je u triggeru ljestvama
-    private bool isCrouching; //Pokazuje da li igrac cuci
+    private bool canJump;            // Pokazuje da li moze da skace igrac
+    private bool onGround;          // Pokazuje da li je na zemlji
+    private bool onLadder;          // Pokazuje da li je na ljestvama
+    private bool inLadderTrigger;   // Pokazuje da li je u triggeru ljestvama
+    private bool isCrouching;       // Pokazuje da li igrac cuci
+    
 
-    private float normalHeight; //Normalna visina igraca
-    private float crouchHeight; //Crouch visina igraca
+    private float normalHeight;     // Normalna visina igraca
+    private float crouchHeight;     // Crouch visina igraca
 
     public GameObject bulletPrefab; // Objekat kojim se instacira metak
-    static int allowedThrows = 3; // Dozvoljen broj metaka
-    public int facing = 0; // 0-Desno 1-Lijevo
+    static int allowedThrows = 3;   // Dozvoljen broj metaka
+    public int facing = 0;          // 0-Desno 1-Lijevo
     public static int bulletDirection = 0; // Smjer metka [0-5]
-
+    
+    public int playerScore=0;       // Pokazuje koliki je score igrača    
+    
+    private Stopwatch jumpTimer;    // Kada sidje sa platforme ima malo vremena da skoci
+    
+    
+    
+    
     void Start()
     {
         //Vrijednosti brzina
-        moveSpeed = 7f;
-        jumpSpeed = 14f;
+        moveSpeed = 9f;
+        jumpSpeed = 19f;
         fallSpeed = 4f;
-        crouchSpeed = 0f;
-
+        crouchSpeed = 1f;
+        
         //Za kontrolu rigidbody-a
         rb = GetComponent<Rigidbody2D>(); 
         rb.gravityScale = fallSpeed;
@@ -42,9 +53,16 @@ public class Player_Movement : MonoBehaviour
 
         //Za kontrolu nad BoxColliderom kod groundCheck()
         colliders = GetComponent<BoxCollider2D>();
-
+        
+        //Uzima visinu igraca i visinu kada cuci
         normalHeight = transform.localScale.y;
         crouchHeight = normalHeight * 0.65f; 
+        
+        playerScore=0;
+        
+        jumpTimer=new Stopwatch();
+        
+        
     }
 
     void Update()
@@ -71,11 +89,41 @@ public class Player_Movement : MonoBehaviour
         else if(isCrouching)
             rb.velocity = new Vector2((crouchSpeed * dirX), rb.velocity.y);
 
+
         //Skok igraca
-        if (Input.GetButtonDown("Jump") && onGround && !isCrouching)
+        
+        if (Input.GetButtonDown("Jump")&&canJump&&!isCrouching)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         }
+        
+        if(onGround&&!isCrouching&&!canJump) //Provjerava da li igrac moze da skoci
+        {
+            canJump=true;
+        }
+        else if(!onGround&&canJump) // Ako sidje sa platforme ima 0.050 da skoci opet
+        {
+            if(!jumpTimer.IsRunning)
+            {
+                jumpTimer.Start();
+            }
+            else if(jumpTimer.ElapsedMilliseconds>50)
+            {
+                canJump=false;
+                jumpTimer.Reset();
+                jumpTimer.Stop();
+                
+            }
+             
+        }
+        if(jumpTimer.ElapsedMilliseconds>1000)
+        {
+            jumpTimer.Reset();
+            jumpTimer.Stop();
+        }
+        
+        
+        
         
         //Cucanj igraca
         if (onGround&&dirY<0)
@@ -118,9 +166,9 @@ public class Player_Movement : MonoBehaviour
             {
                 Vector3 pos;
                 if (facing==1) //Ako gleda lijevo stavi poziciju stvaranja na lijevu ivicu igraca
-                    pos = new Vector3(colliders.bounds.center.x-colliders.bounds.size.x/2,colliders.bounds.center.y);
+                    pos = new Vector3(colliders.bounds.center.x-colliders.bounds.size.x/2-0.3f,colliders.bounds.center.y);
                 else //Ako gleda desno stavi poziciju stvaranja na desnu ivicu igraca
-                    pos = new Vector3(colliders.bounds.center.x + colliders.bounds.size.x / 2, colliders.bounds.center.y);
+                    pos = new Vector3(colliders.bounds.center.x + colliders.bounds.size.x / 2+0.3f, colliders.bounds.center.y);
                 
                 // Smjer metaka
                 if(dirY<0) // Dole
@@ -160,15 +208,30 @@ public class Player_Movement : MonoBehaviour
     private BoxCollider2D colliders;
     bool GroundCheck()
     { 
-        return Physics2D.BoxCast(colliders.bounds.center, colliders.bounds.size, 0f, Vector2.down, .1f, GroundLayer);
-    }    
-    
-    /// Igrac na ljestvama
+        return Physics2D.BoxCast(colliders.bounds.center, colliders.bounds.size, 0f, Vector2.down, .01f, GroundLayer);
+    }
+
+    /// Triggeri
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "Ladder")
+        string triggerName = other.name.ToUpper();
+        if (triggerName == "LADDER")
         {
             inLadderTrigger = true;
+        }
+        if (triggerName == "COIN")
+        {
+            playerScore++;
+            Destroy(other.gameObject);
+        }
+        if(triggerName=="BIGCOIN")
+        {
+            playerScore+=5;
+            Destroy(other.gameObject);
+        }
+        if (triggerName=="SPIKE"||triggerName == "DEADZONE") 
+        {
+            PlayerDeath();
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -191,6 +254,11 @@ public class Player_Movement : MonoBehaviour
     public static void BulletDestroy()
     {
         allowedThrows++;
+    }
+
+    public void PlayerDeath()
+    {
+        transform.position = new Vector2(-9.5f, 4.5f);
     }
     
 }
