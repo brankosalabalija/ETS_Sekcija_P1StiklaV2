@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -31,8 +32,6 @@ public class Player_Movement : MonoBehaviour
     public int facing = 0;          // 0-Desno 1-Lijevo
     public static int bulletDirection = 0; // Smjer metka [0-5]
     
-    public int playerScore=0;       // Pokazuje koliki je score igrača    
-    
     private Stopwatch jumpTimer;    // Kada sidje sa platforme ima malo vremena da skoci
     
     
@@ -58,8 +57,6 @@ public class Player_Movement : MonoBehaviour
         normalHeight = transform.localScale.y;
         crouchHeight = normalHeight * 0.65f; 
         
-        playerScore=0;
-        
         jumpTimer=new Stopwatch();
         
         
@@ -82,7 +79,7 @@ public class Player_Movement : MonoBehaviour
         
         //Da li je na zemlji igrac
         onGround = GroundCheck();
-
+        
         //Kretanje na x osi (lijevo,desno)
         if(!isCrouching)
             rb.velocity = new Vector2((moveSpeed * dirX), rb.velocity.y);
@@ -103,6 +100,8 @@ public class Player_Movement : MonoBehaviour
         }
         else if(!onGround&&canJump) // Ako sidje sa platforme ima 0.050 da skoci opet
         {
+            canJump=false;
+            
             if(!jumpTimer.IsRunning)
             {
                 jumpTimer.Start();
@@ -208,7 +207,7 @@ public class Player_Movement : MonoBehaviour
     private BoxCollider2D colliders;
     bool GroundCheck()
     { 
-        return Physics2D.BoxCast(colliders.bounds.center, colliders.bounds.size, 0f, Vector2.down, .01f, GroundLayer);
+        return Physics2D.BoxCast(colliders.bounds.center, colliders.bounds.size, 0f, Vector2.down, .1f, GroundLayer);
     }
 
     /// Triggeri
@@ -219,21 +218,19 @@ public class Player_Movement : MonoBehaviour
         {
             inLadderTrigger = true;
         }
-        if (triggerName == "COIN")
-        {
-            playerScore++;
-            Destroy(other.gameObject);
-        }
-        if(triggerName=="BIGCOIN")
-        {
-            playerScore+=5;
-            Destroy(other.gameObject);
-        }
-        if (triggerName=="SPIKE"||triggerName == "DEADZONE") 
+        if (other.gameObject.tag=="Death") 
         {
             PlayerDeath();
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag=="Death") 
+        {
+            PlayerDeath();
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.name == "Ladder")
@@ -258,7 +255,8 @@ public class Player_Movement : MonoBehaviour
 
     public void PlayerDeath()
     {
-        transform.position = new Vector2(-9.5f, 4.5f);
+        Scene thisScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(thisScene.buildIndex,LoadSceneMode.Single);
     }
     
 }
