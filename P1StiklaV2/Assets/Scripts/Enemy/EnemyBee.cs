@@ -43,8 +43,6 @@ public class EnemyBee : MonoBehaviour
         }
         if(canShoot)
         {
-            UnityEngine.Debug.Log("BEESHOOT");
-            
             GameObject temp=GameObject.Instantiate(BeeBullet,BeeShootingSpot.position,Quaternion.identity);
             temp.GetComponent<EnemyBeeBullet>().SetDir(Player.transform.position);
             temp.SetActive(true);

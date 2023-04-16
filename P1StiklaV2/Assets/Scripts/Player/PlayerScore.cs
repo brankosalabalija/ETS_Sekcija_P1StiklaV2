@@ -9,9 +9,8 @@ using UnityEngine.UI;
 
 public class PlayerScore : MonoBehaviour
 {
-    public Text Score;
-    public Text Keys;
-    public Text Time;
+    public GameObject _HUD;
+    public HUDScript _HUDScript;
     private int playerScore;
     private int keyNum;
     private Stopwatch timeStart;
@@ -19,20 +18,14 @@ public class PlayerScore : MonoBehaviour
     {
         playerScore = 0;
         keyNum = 0;
-        Score.text="Score: "+ playerScore;
         timeStart=new Stopwatch();
         timeStart.Start();
-        
+        _HUDScript=_HUD.GetComponent<HUDScript>();
     }
 
     private void Update() {
-        Time.text=String.Format("Time:{0:00}:{1:00}:{2:00}",timeStart.Elapsed.Minutes,timeStart.Elapsed.Seconds,timeStart.Elapsed.Milliseconds);
-        Score.text="Score: "+playerScore;
-        Keys.text="Keys: "+keyNum;
-        if(keyNum==0)
-        {
-            Keys.enabled=false;
-        }
+        _HUDScript.UISetScore(playerScore);
+        _HUDScript.UISetTime(timeStart.Elapsed.Minutes,timeStart.Elapsed.Seconds,timeStart.Elapsed.Milliseconds);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -49,9 +42,8 @@ public class PlayerScore : MonoBehaviour
         }
         if(triggerName=="KEY")
         {
-            Keys.enabled=true;
+            _HUDScript.UIGetKey();
             keyNum++;
-            Keys.text="Keys: "+keyNum;
             Destroy(other.gameObject);
         }
         
@@ -62,6 +54,7 @@ public class PlayerScore : MonoBehaviour
         {
             if(keyNum>0)
             {
+                _HUDScript.UILoseKey();
                 keyNum--;
                 Destroy(other.gameObject);
             }

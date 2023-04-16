@@ -9,15 +9,23 @@ public class Player_Movement : MonoBehaviour
 {
 
     [SerializeField] private LayerMask GroundLayer; //Koristi se za groundCheck()
-
     private Rigidbody2D rb;
+
+    public GameObject _HUD;
+    public HUDScript _HUDScript;
+
+     float dirX;
+     float dirY;
+
+    public int lives;
 
     public float moveSpeed = 9f;    // Brzina kretanja
     public float jumpSpeed = 19f;   // Brzina skoka
     public float fallSpeed = 4f;    // Brzina pada/gravitacija za igraca
     public float crouchSpeed = 1f;  // Brzina pada/gravitacija za igraca
 
-    private bool canJump;            // Pokazuje da li moze da skace igrac
+    private bool canJump;            // Pokazuje da li moze da skace igrac           
+    private bool canMove;            
     public bool onGround;          // Pokazuje da li je na zemlji
     private bool onLadder;          // Pokazuje da li je na ljestvama
     private bool inLadderTrigger;   // Pokazuje da li je u triggeru ljestvama
@@ -34,15 +42,17 @@ public class Player_Movement : MonoBehaviour
     public static int bulletDirection = 0; // Smjer metka [0-5]
     
     private Stopwatch jumpTimer;    // Kada sidje sa platforme ima malo vremena da skoci
+    private Stopwatch invinceFrames;    // Kada sidje sa platforme ima malo vremena da skoci
     
     Animator _animator;
-    private bool isShooting;
     
     void Start()
     {
+        _HUDScript=_HUD.GetComponent<HUDScript>();
+        lives=3;
         //Vrijednosti brzina
         moveSpeed = 9f;
-        jumpSpeed = 19f;
+        jumpSpeed = 15f;
         fallSpeed = 4f;
         crouchSpeed = 1f;
         
@@ -59,21 +69,33 @@ public class Player_Movement : MonoBehaviour
         crouchHeight = normalHeight * 0.65f; 
         
         jumpTimer=new Stopwatch();
+        invinceFrames=new Stopwatch();
         
         _animator=GetComponentInChildren<Animator>();
-
-        isShooting=false;
+        _animator.gameObject.SetActive(true);
+        
+        canMove=true;
         
     }
 
     void Update()
     {
 
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            _HUDScript.Pause();
+        }
         ///Osnovne kontrole igraca
         
         //Uzima unos igraca (lijevo,desno,gore,dole)
-        float dirX = Input.GetAxisRaw("Horizontal");
-        float dirY = Input.GetAxisRaw("Vertical");
+        if(canMove)
+        {
+        dirX = Input.GetAxisRaw("Horizontal");
+        dirY = Input.GetAxisRaw("Vertical");
+
+        }
+        
+        
 
         //Facing
         if (dirX > 0)
@@ -106,8 +128,7 @@ public class Player_Movement : MonoBehaviour
 
 
         //Skok igraca
-        
-        if (Input.GetButtonDown("Jump")&&canJump&&!isCrouching)
+        if (Input.GetButton("Jump")&&canJump&&!isCrouching)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         }
@@ -140,7 +161,12 @@ public class Player_Movement : MonoBehaviour
         }
         
         
-        
+        if(invinceFrames.ElapsedMilliseconds>1500&&invinceFrames.IsRunning)
+        {
+            invinceFrames.Stop();
+            invinceFrames.Reset();
+            
+        }
         
         //Cucanj igraca
         if (onGround&&dirY<0)
@@ -176,8 +202,10 @@ public class Player_Movement : MonoBehaviour
         
         
         // Pucanje/Bacanje oruzja
-        if(!_animator.GetAnimatorTransitionInfo(0).IsName("PlayerThrow")&&isShooting)
+        if (Input.GetButtonDown("Fire1")&&allowedThrows>0)
         {
+            _animator.SetTrigger("Throwing");
+            
             if(allowedThrows>0)
             {
                 if(dirY<0) // Dole
@@ -202,20 +230,31 @@ public class Player_Movement : MonoBehaviour
                     else // Lijevo
                         bulletDirection = 3;
                 }
+                }
+
                 //Instanciranje objekta
                 GameObject a = Instantiate(bulletPrefab, bulletPosition.position, Quaternion.identity);
                 a.SetActive(true); // Aktiviranje objekta
                 allowedThrows--; // Smanjuje broj dozvoljenih metaka
-            }
-            isShooting=false;
-        }
-        if (Input.GetButtonDown("Fire1")&&!isShooting&&allowedThrows>0)
-        {
-            _animator.SetTrigger("Throwing");
-            isShooting=true;
         }
         
 
+    }
+
+    private void Hurt()
+    {
+        lives--;
+        if(lives==0)
+        {
+            
+            PlayerDeath();
+        }
+        else
+        {
+            _animator.SetTrigger("Hurt");
+            _HUDScript.UILoseLife();
+            invinceFrames.Restart();
+        }
     }
 
     //Provjerava da li je igrac na zemlji
@@ -236,11 +275,25 @@ public class Player_Movement : MonoBehaviour
         }
         if (other.gameObject.tag=="Death") 
         {
-            PlayerDeath();
+            if(other.gameObject.name=="DeadZone")
+                PlayerDeath();
+            else if(!invinceFrames.IsRunning)
+            {
+                invinceFrames.Start();
+                Hurt();
+            }
         }
     }
 
+
     private void OnCollisionStay2D(Collision2D other) {
+        if(other.gameObject.tag=="Death")
+        {
+            if(!(invinceFrames.ElapsedMilliseconds>0))
+                Hurt();
+
+            
+        }
         if(other.gameObject.layer==LayerMask.NameToLayer("Ground"))
         {
             onGround=GroundCheck();
@@ -257,7 +310,11 @@ public class Player_Movement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag=="Death") 
         {
-            PlayerDeath();
+            if(!invinceFrames.IsRunning)
+            {
+                invinceFrames.Start();
+                Hurt();
+            }
         }
     }
 
@@ -285,6 +342,16 @@ public class Player_Movement : MonoBehaviour
 
     public void PlayerDeath()
     {
+        canMove=false;
+        _HUDScript.FadeOUT();
+        
+        Invoke("SceneReset",1.1f);
+        
+    }
+
+    private void SceneReset()
+    {
+        _HUDScript.UIReset();
         Scene thisScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(thisScene.buildIndex,LoadSceneMode.Single);
     }
