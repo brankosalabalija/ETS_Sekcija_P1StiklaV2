@@ -52,6 +52,7 @@ public class Boss : MonoBehaviour
         if(health<=0&&!isEnd)
         {
             Hud.GetComponent<HUDScript>().FadeOUT();
+            LoseFire();
             Invoke("GameOver",1f);
             isEnd=true;
         }
@@ -163,7 +164,13 @@ public class Boss : MonoBehaviour
         
         
     }
-
+    
+    void LoseFire()
+    {
+        FireGuy.SetActive(false);
+        FireGuy2.SetActive(false);
+    }
+    
     void GetFire()
     {
         FireGuy.SetActive(true);
@@ -172,7 +179,8 @@ public class Boss : MonoBehaviour
 
     void GameOver()
     {
-        Time.timeScale=0;
+        //Time.timeScale=0;
+        
         SceneManager.LoadScene("end",LoadSceneMode.Single);
         Destroy(this.gameObject);
     }
