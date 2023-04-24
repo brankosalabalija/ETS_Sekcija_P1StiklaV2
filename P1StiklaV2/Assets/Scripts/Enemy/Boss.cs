@@ -13,7 +13,7 @@ public class Boss : MonoBehaviour
     public GameObject Health;
 
     public Transform Player;
-    private int health=200;
+    public int health;
 
     public GameObject FireGuy;
     public GameObject FireGuy2;
@@ -60,7 +60,7 @@ public class Boss : MonoBehaviour
         {
             return;
         }
-        if(health<100&&isPhaseOne)
+        if(health<(health/2)&&isPhaseOne)
         {
             Invoke("GetFire",1f);
             Instantiate(Warning,FireGuy.transform.position,Quaternion.identity);
