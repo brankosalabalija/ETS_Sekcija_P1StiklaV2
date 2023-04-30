@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Collections;
 using System.Threading;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ public class EnemyBee : MonoBehaviour
         if(canShoot)
         {
             GameObject temp=GameObject.Instantiate(BeeBullet,BeeShootingSpot.position,Quaternion.identity);
-            temp.GetComponent<EnemyBeeBullet>().SetDir(Player.transform.position);
+            temp.GetComponent<EnemyBeeBullet>().SetDir(Player.transform.position); //ugao pod kojim bee gađa
             temp.SetActive(true);
             canShoot=false;
             _watch.Restart();
