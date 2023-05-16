@@ -252,7 +252,10 @@ public class Player_Movement : MonoBehaviour
         else
         {
             _animator.SetTrigger("Hurt");
-            _HUDScript.UILoseLife();
+            if (lives <= 3)
+            {
+                _HUDScript.UILoseLife();
+            }
             invinceFrames.Restart();
         }
     }

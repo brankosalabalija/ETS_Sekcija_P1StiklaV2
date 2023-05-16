@@ -44,7 +44,8 @@ public class EnemyBee : MonoBehaviour
         if(canShoot)
         {
             GameObject temp=GameObject.Instantiate(BeeBullet,BeeShootingSpot.position,Quaternion.identity);
-            temp.GetComponent<EnemyBeeBullet>().SetDir(Player.transform.position); //ugao pod kojim bee gađa
+            temp.GetComponent<EnemyBeeBullet>().SetDir(Player.transform.position); //100% acc
+            //temp.GetComponent<EnemyBeeBullet>().SetDir(BeeShootingSpot.transform.position + new Vector3(-1,-1,0)); //ugao pod kojim bee gađa
             temp.SetActive(true);
             canShoot=false;
             _watch.Restart();
