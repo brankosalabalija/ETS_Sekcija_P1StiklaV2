@@ -14,6 +14,7 @@ public class Boss : MonoBehaviour
 
     public Transform Player;
     public int health;
+    private int halfHP;
 
     public GameObject FireGuy;
     public GameObject FireGuy2;
@@ -43,6 +44,9 @@ public class Boss : MonoBehaviour
         reload.Start();
         isAnimating=false;
         isPhaseOne=true;
+        Health.GetComponent<HealthBar>().setTotalLives(health);
+        Health.GetComponent<HealthBar>().setLives(health);
+        halfHP = health / 2;
     }
 
     bool isEnd=false;
@@ -60,9 +64,10 @@ public class Boss : MonoBehaviour
         {
             return;
         }
-        if(health<(health/2)&&isPhaseOne)
+        if(health<halfHP&&isPhaseOne)
         {
-            Invoke("GetFire",1f);
+            //Invoke("GetFire",1f);
+            GetFire();
             Instantiate(Warning,FireGuy.transform.position,Quaternion.identity);
             Instantiate(Warning,FireGuy2.transform.position,Quaternion.identity);
             isPhaseOne=false;

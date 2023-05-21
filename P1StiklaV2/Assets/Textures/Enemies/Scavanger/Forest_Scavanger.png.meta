@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 250
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Forest_Scavanger_0_Idle
+      name: Forest_Scavanger_0
       rect:
         serializedVersion: 2
         x: 6
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4831af8940b142a4fa8f8a6126b6156f
-      internalID: -285333455
+      spriteID: 79af660e129e5b347aba9d7a6d550f3e
+      internalID: 42450359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Forest_Scavanger_Move_1
+      name: Forest_Scavanger_1
       rect:
         serializedVersion: 2
         x: 56
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7198fcf6852b7974fa784e0f3f4ed26f
-      internalID: -965322773
+      spriteID: 720ae3605a631f047a29aee6e6e59631
+      internalID: 1063555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Forest_Scavanger_Move_2
+      name: Forest_Scavanger_2
       rect:
         serializedVersion: 2
         x: 106
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42db2e77c4b95d34e9bf0eef5b8036e4
-      internalID: 1698500443
+      spriteID: 9fd2a687b7ee2e8449ee38498c816202
+      internalID: -2039974942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Forest_Scavanger_Attack
+      name: Forest_Scavanger_3
       rect:
         serializedVersion: 2
         x: 157
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec0a9dcb87edfab48856973110aa672b
-      internalID: 489476391
+      spriteID: 18a4580032d519d4e993b79327aa599e
+      internalID: 716992346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Forest_Scavanger_Bullet
+      name: Forest_Scavanger_4
       rect:
         serializedVersion: 2
         x: 209
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17ccb6fe70a5b8b4d913a5d23cfae586
-      internalID: 649193696
+      spriteID: 5ad46106eba7e6148b6ea860b7972a49
+      internalID: 1521857044
       vertices: []
       indices: 
       edges: []
@@ -220,11 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Forest_Scavanger_0_Idle: -285333455
-      Forest_Scavanger_Attack: 489476391
-      Forest_Scavanger_Bullet: 649193696
-      Forest_Scavanger_Move_1: -965322773
-      Forest_Scavanger_Move_2: 1698500443
+      Forest_Scavanger_0: 42450359
+      Forest_Scavanger_1: 1063555
+      Forest_Scavanger_2: -2039974942
+      Forest_Scavanger_3: 716992346
+      Forest_Scavanger_4: 1521857044
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

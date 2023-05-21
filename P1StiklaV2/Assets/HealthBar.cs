@@ -5,21 +5,27 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
     float scale;
-    int lives=200;
+    public int HP=50;
+    public float MaxHP=50;
     void Update()
     {
-        if(lives<=0)
+        if(HP<=0)
         {
             this.transform.localScale=new Vector3(0,1f,1f);
             return;
         }
-        this.transform.localScale=new Vector3((lives/200f),1f,1f);
+        this.transform.localScale=new Vector3((HP/MaxHP),1f,1f);
         
     }
 
 
     public void setLives(int l)
     {
-        lives=l;
+        HP=l;
+    }
+
+    public void setTotalLives(int l)
+    {
+        MaxHP = l;
     }
 }

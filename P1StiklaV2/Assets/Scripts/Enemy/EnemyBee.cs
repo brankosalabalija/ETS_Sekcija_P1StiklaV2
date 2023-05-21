@@ -15,6 +15,8 @@ public class EnemyBee : MonoBehaviour
 
     private bool canShoot;
     private bool isVisible;
+    private bool isFacingRight;
+
 
     void Start()
     {
@@ -30,22 +32,33 @@ public class EnemyBee : MonoBehaviour
         if(Player.transform.position.x>transform.position.x)
         {
             transform.rotation=Quaternion.Euler(0,180,0);
+            isFacingRight = true;
         }
         else
         {
-            transform.rotation=Quaternion.Euler(0,0,0);
+            transform.rotation=Quaternion.Euler(0,0,0); 
+            isFacingRight = false;
         }
 
 
-        if(_watch.ElapsedMilliseconds>1500)
+        if(_watch.ElapsedMilliseconds>2000)
         {
             canShoot=true;
         }
         if(canShoot)
         {
+            GetComponent<Animator>().SetTrigger("Attack");
             GameObject temp=GameObject.Instantiate(BeeBullet,BeeShootingSpot.position,Quaternion.identity);
-            temp.GetComponent<EnemyBeeBullet>().SetDir(Player.transform.position); //100% acc
-            //temp.GetComponent<EnemyBeeBullet>().SetDir(BeeShootingSpot.transform.position + new Vector3(-1,-1,0)); //ugao pod kojim bee gađa
+            //temp.GetComponent<EnemyBeeBullet>().SetDir(Player.transform.position); //100% acc
+            if(isFacingRight)
+            {
+                temp.GetComponent<EnemyBeeBullet>().SetDir(BeeShootingSpot.transform.position + new Vector3(1, -1, 0)); //ugao pod kojim bee gađa
+            }
+            else
+            {
+                temp.GetComponent<EnemyBeeBullet>().SetDir(BeeShootingSpot.transform.position + new Vector3(-1, -1, 0)); //ugao pod kojim bee gađa
+            }
+            
             temp.SetActive(true);
             canShoot=false;
             _watch.Restart();

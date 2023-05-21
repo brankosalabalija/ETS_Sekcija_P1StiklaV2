@@ -9,6 +9,8 @@ public class EnemyBehavior : MonoBehaviour
     public Vector2 rightPos;
     Rigidbody2D _rigidbody;
     private int Lives;
+
+
     void Start()
     {
         Lives=3;
