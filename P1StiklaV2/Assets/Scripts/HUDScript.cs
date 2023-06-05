@@ -13,14 +13,17 @@ public class HUDScript : MonoBehaviour
     public Text TimeUI;
     string TimeFormated;
 
-    public Image Key;
+    public GameObject key;
     bool KeyShown;
-    public Image Hearth1;
+    public GameObject heart;
+    /*public Image Hearth1;
     public Image Hearth2;
-    public Image Hearth3;
+    public Image Hearth3;*/
 
-    private Image[] Hearths;
-    private int lives=3;
+    public GameObject[] Hearts;
+    public GameObject[] Keys;
+    private int lives = 3;
+    public int collectedKey = 0;
 
     bool isPaused;
 
@@ -28,23 +31,26 @@ public class HUDScript : MonoBehaviour
     {
         ScoreNum = 0;
         TimeFormated = "Time: 00:00:00";
-        Hearths = new Image[3];
-        Hearths[2] = Hearth1;
+        Hearts = new GameObject[lives];
+        InstantiateHeartsUI(lives);
+        InstantiateKeysUI();
+        /*Hearths[2] = Hearth1;
         Hearths[1] = Hearth2;
-        Hearths[0] = Hearth3;
+        Hearths[0] = Hearth3;*/
         KeyShown=false;
         isPaused=false;
         Time.timeScale=1;
     }
+
 
     void Update()
     {
         TimeUI.text=TimeFormated;
         ScoreUI.text="Score: "+ScoreNum;
         if(KeyShown)
-            Key.enabled=true;
+            key.SetActive(true);
         else
-            Key.enabled=false;
+            key.SetActive(false);
     }
 
     public void Pause() {
@@ -76,10 +82,13 @@ public class HUDScript : MonoBehaviour
 
     public void UIReset()
     {
-        Hearths[2].enabled=true;
+        InstantiateHeartsUI(lives);
+        collectedKey = 0;
+        InstantiateKeysUI();
+        /*Hearths[2].enabled=true;
         Hearths[1].enabled=true;
         Hearths[0].enabled=true;
-        lives=3;
+        lives=3;*/
     }
 
 
@@ -90,18 +99,21 @@ public class HUDScript : MonoBehaviour
     }
     public void UIGetKey()
     {
-        KeyShown=true;
+        collectedKey++;
+        Keys[collectedKey].SetActive(true);
     }
 
     public void UILoseKey()
     {
-        KeyShown=false;
+        collectedKey--;
+        Keys[collectedKey].SetActive(false);
+
     }
 
     public void UILoseLife()
     {
         lives--;
-        Hearths[lives].enabled=false;
+        Hearts[lives].SetActive(false);
     }
 
     public void UISetScore(int score)
@@ -114,6 +126,29 @@ public class HUDScript : MonoBehaviour
         TimeFormated=String.Format("Time: {0:00}:{1:00}:{2:00}",minutes,seconds,miliseconds);
     }
 
-    
+    public void InstantiateHeartsUI (int lives)
+    {
+        for (int i = 0; i < Hearts.Length; i++)
+        {
+            Hearts[i] = Instantiate(heart, heart.GetComponentInParent<Canvas>().transform);
+            Hearts[i].SetActive(true);
 
+            Vector3 offset = new Vector3(heart.transform.position.x + (i * 50f), heart.transform.position.y, 0);
+            Hearts[i].transform.position = offset;
+
+        }
+    }
+
+    private void InstantiateKeysUI()
+    {
+        int keysLength = 4;
+        for (int i = 0; i < keysLength; i++)
+        {
+            Keys[i] = Instantiate(key, key.GetComponentInParent<Canvas>().transform);
+            Keys[i].SetActive(false);
+
+            Vector3 offset = new Vector3(key.transform.position.x + (i * 35f), key.transform.position.y, 0);
+            Keys[i].transform.position = offset;
+        }
+    }
 }

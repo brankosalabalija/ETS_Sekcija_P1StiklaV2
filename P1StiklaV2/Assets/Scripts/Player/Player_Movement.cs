@@ -37,7 +37,7 @@ public class Player_Movement : MonoBehaviour
 
     public Transform bulletPosition;
     public GameObject bulletPrefab; // Objekat kojim se instacira metak
-    static int allowedThrows = 1;   // Dozvoljen broj metaka
+    static int allowedThrows = 2;   // Dozvoljen broj metaka
     public int facing = 0;          // 0-Desno 1-Lijevo
     public static int bulletDirection = 0; // Smjer metka [0-5]
     
