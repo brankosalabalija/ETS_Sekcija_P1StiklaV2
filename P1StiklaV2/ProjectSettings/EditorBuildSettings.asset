@@ -23,10 +23,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/end.unity
     guid: 1c69c7f0454078c41b22ecb5e99c521a
+  - enabled: 1
+    path: Assets/Scenes/lvl5.unity
+    guid: 293f8a4ebe0ba6e4f868170fe3f89c94
+  - enabled: 1
+    path: Assets/Scenes/lvl6.unity
+    guid: 639e3534212c16647b0f1fdd0a3c20c3
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 0
     path: Assets/Scenes/TestScena.unity
     guid: dc37d637ccfc59b49a5f7287443e9b94
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/ScenaTestEnemies.unity
+    guid: 3b6c62e95929e814c842d22a374a51a0
+  - enabled: 0
+    path: Assets/Scenes/Temple.unity
+    guid: 1dc2d0cf6711e644ea04298989bf9e37
+  - enabled: 0
+    path: Assets/Scenes/AutumnForest.unity
+    guid: 25cb4b6018f82674da37fffefd0ddbd8
+  - enabled: 0
+    path: Assets/Scenes/Cave.unity
+    guid: 67d5e672784be5b4aaf8c122c1d97969
   m_configObjects: {}

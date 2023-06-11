@@ -52,11 +52,11 @@ public class EnemyBee : MonoBehaviour
             //temp.GetComponent<EnemyBeeBullet>().SetDir(Player.transform.position); //100% acc
             if(isFacingRight)
             {
-                temp.GetComponent<EnemyBeeBullet>().SetDir(BeeShootingSpot.transform.position + new Vector3(1, -1, 0)); //ugao pod kojim bee gađa
+                temp.GetComponent<EnemyBeeBullet>().SetDir(BeeShootingSpot.transform.position + new Vector3(1, -1, 0)); //ugao od 225 stepeni
             }
             else
             {
-                temp.GetComponent<EnemyBeeBullet>().SetDir(BeeShootingSpot.transform.position + new Vector3(-1, -1, 0)); //ugao pod kojim bee gađa
+                temp.GetComponent<EnemyBeeBullet>().SetDir(BeeShootingSpot.transform.position + new Vector3(-1, -1, 0)); //ugao od 315 stepeni
             }
             
             temp.SetActive(true);

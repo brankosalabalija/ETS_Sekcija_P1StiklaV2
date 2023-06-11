@@ -14,7 +14,7 @@ public class HUDScript : MonoBehaviour
     string TimeFormated;
 
     public GameObject key;
-    bool KeyShown;
+    //bool KeyShown;
     public GameObject heart;
     /*public Image Hearth1;
     public Image Hearth2;
@@ -32,12 +32,13 @@ public class HUDScript : MonoBehaviour
         ScoreNum = 0;
         TimeFormated = "Time: 00:00:00";
         Hearts = new GameObject[lives];
+        Keys = new GameObject[5];
         InstantiateHeartsUI(lives);
         InstantiateKeysUI();
         /*Hearths[2] = Hearth1;
         Hearths[1] = Hearth2;
         Hearths[0] = Hearth3;*/
-        KeyShown=false;
+        //KeyShown=false;
         isPaused=false;
         Time.timeScale=1;
     }
@@ -47,10 +48,10 @@ public class HUDScript : MonoBehaviour
     {
         TimeUI.text=TimeFormated;
         ScoreUI.text="Score: "+ScoreNum;
-        if(KeyShown)
-            key.SetActive(true);
-        else
-            key.SetActive(false);
+        //if(KeyShown)
+        //    key.SetActive(true);
+        //else
+        //    key.SetActive(false);
     }
 
     public void Pause() {

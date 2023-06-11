@@ -17,6 +17,7 @@ public class GoremScript : MonoBehaviour
     
     Stopwatch _watch;
     private bool canAttack;
+    private bool isVisible;
 
     public GameObject gSpike;
     public Transform spikeSpawnPos;
@@ -36,6 +37,9 @@ public class GoremScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isVisible)
+            return;
+
         //Kretanje i okretanje u odnosu na poziciju po x-osi sa rotaciom
         if (transform.position.x >= rightPos.x)
         {
@@ -78,7 +82,6 @@ public class GoremScript : MonoBehaviour
         if (canAttack)
         {
             
-
             GetComponent<Animator>().SetTrigger("Stomp");
 
             GameObject temp = GameObject.Instantiate(gSpike, (spikeSpawnPos.position + spikeOffV3), Quaternion.identity);
@@ -98,5 +101,17 @@ public class GoremScript : MonoBehaviour
         {
             healtPoints--;
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        _watch.Stop();
+        isVisible = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        _watch.Start();
+        isVisible = true;
     }
 }

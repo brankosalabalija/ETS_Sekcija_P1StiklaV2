@@ -1,0 +1,739 @@
+fileFormatVersion: 2
+guid: cb569a043ddaf8f4292eca3239f67a37
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 144
+        width: 72
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f0cf9d6a049e4419a18535ce81e3ce
+      internalID: 718891804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 144
+        width: 41
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 654579532a581a843b66da66eedf6820
+      internalID: -534117091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 288
+        width: 63
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dfb3ecf78dfa284684f3f6892cf6d9d
+      internalID: -1737189691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 288
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd485eb71dc8c3748bab1dd0c46a9f81
+      internalID: -174966854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 288
+        width: 51
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad1be69dbde6b64aaf9dc6ea692fd2a
+      internalID: -1804220328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 288
+        width: 44
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1be1d6fb41c888c459f318285b9e3cb8
+      internalID: 1876967925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 288
+        width: 120
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548667e61d24d2647bf30d85d1f6d1a7
+      internalID: -1289448602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 288
+        width: 65
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb20a4292b49dba4cbcaa31a793aa320
+      internalID: -802290737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 288
+        width: 42
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10788fbc14df9ae4d9881edd9e88060d
+      internalID: 1188434084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 288
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9928a47a5c726e74282a0dd1a7c59c24
+      internalID: 329395040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 288
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c621eea1a9f5827418a8d19f7e0221bf
+      internalID: 1227716612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 288
+        width: 28
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c39adc03bd9aa6a4c8ea96ae24221720
+      internalID: -29171079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 288
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b504cd9b800e194f861ba0899df5d84
+      internalID: 1307545246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 288
+        width: 63
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce45a9936a919346ab1109abbe31697
+      internalID: -422899473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 144
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20f97c4fc21de7840bffb64932df850f
+      internalID: 38408085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 144
+        width: 85
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 768041b450853374894fec8e20a73458
+      internalID: 68711204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 144
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2d82420cb4bc84c873f166b9677f73
+      internalID: 208278313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 144
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e15ea93a5e550488a6a61617c13dba
+      internalID: 379524409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 124
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0476bf92bc12634fb09a43b3ae47ea9
+      internalID: 1527508012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 64
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b573a3b228410a944a2f20ccb1a1ce85
+      internalID: -172722782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 84
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dcb22179ec2ed444a3012472e781a13
+      internalID: -316604008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 0
+        width: 62
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 591c02abfbb32984c871d85ee8454aa6
+      internalID: -1551764964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2386e5900b1d6a94eb666dbe5b0af017
+      internalID: 652608617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 0
+        width: 40
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3de8822b536934abba9ed5b4dce014
+      internalID: -1683578285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 0
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ed8049a9234894bbb442da2934db2c
+      internalID: -145892060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 0
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6893740a39fb0f740908fd23ef4ed6b0
+      internalID: 2059632107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 0
+        width: 60
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 643735ca45d42a74fa42f031e10b9fd3
+      internalID: 1579897095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nauris-amatnieks-promo2x-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 144
+        width: 56
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e5693170ae46d44bca8e036b76a0cd
+      internalID: -1529269471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      nauris-amatnieks-promo2x-removebg-preview_0: 718891804
+      nauris-amatnieks-promo2x-removebg-preview_1: -534117091
+      nauris-amatnieks-promo2x-removebg-preview_10: 1227716612
+      nauris-amatnieks-promo2x-removebg-preview_11: -29171079
+      nauris-amatnieks-promo2x-removebg-preview_12: 1307545246
+      nauris-amatnieks-promo2x-removebg-preview_13: -422899473
+      nauris-amatnieks-promo2x-removebg-preview_14: 38408085
+      nauris-amatnieks-promo2x-removebg-preview_15: 68711204
+      nauris-amatnieks-promo2x-removebg-preview_16: 208278313
+      nauris-amatnieks-promo2x-removebg-preview_17: 379524409
+      nauris-amatnieks-promo2x-removebg-preview_18: 1527508012
+      nauris-amatnieks-promo2x-removebg-preview_19: -172722782
+      nauris-amatnieks-promo2x-removebg-preview_2: -1737189691
+      nauris-amatnieks-promo2x-removebg-preview_20: -316604008
+      nauris-amatnieks-promo2x-removebg-preview_21: -1551764964
+      nauris-amatnieks-promo2x-removebg-preview_22: 652608617
+      nauris-amatnieks-promo2x-removebg-preview_23: -1683578285
+      nauris-amatnieks-promo2x-removebg-preview_24: -145892060
+      nauris-amatnieks-promo2x-removebg-preview_25: 2059632107
+      nauris-amatnieks-promo2x-removebg-preview_26: 1579897095
+      nauris-amatnieks-promo2x-removebg-preview_27: -1529269471
+      nauris-amatnieks-promo2x-removebg-preview_3: -174966854
+      nauris-amatnieks-promo2x-removebg-preview_4: -1804220328
+      nauris-amatnieks-promo2x-removebg-preview_5: 1876967925
+      nauris-amatnieks-promo2x-removebg-preview_6: -1289448602
+      nauris-amatnieks-promo2x-removebg-preview_7: -802290737
+      nauris-amatnieks-promo2x-removebg-preview_8: 1188434084
+      nauris-amatnieks-promo2x-removebg-preview_9: 329395040
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
